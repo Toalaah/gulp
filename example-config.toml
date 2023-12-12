@@ -1,0 +1,7 @@
+[gulp]
+  # Any window whose WM_CLASS atom matches one of these values is considered a
+  # terminal emulator.
+  terminals = [ "kitty", "st", "Alacritty" ]
+  # Any window whose WM_CLASS atom matches one of these values will *not* be swalloed,
+  # even when execd from a terminal.
+  exceptions = [ "Zathura" ]

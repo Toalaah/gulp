@@ -1,0 +1,16 @@
+[Install]
+WantedBy=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/gulp
+Restart=on-failure
+RestartSec=3
+
+[Unit]
+Description=Gulp
+Documentation=https://github.com/toalaah/gulp
+After=graphical-session-pre.target
+PartOf=graphical-session.target
+
+# vim: ft=systemd

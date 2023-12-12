@@ -1,0 +1,4 @@
+---
+AlwaysBreakAfterDefinitionReturnType: All
+AlignConsecutiveMacros: Consecutive
+ColumnLimit: 120

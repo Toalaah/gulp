@@ -1,0 +1,4 @@
+*.o
+gulp
+.direnv
+gulp.1
