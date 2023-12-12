@@ -15,13 +15,15 @@ agnostic.
 
 ## Installation
 
-Dependencies:
+Dependencies (package names can be used as-is on `apt`):
 
-- `libX11`
-- `libXres`
-- `procps`
-- `tomlc99`
+- `libx11-dev`
+- `libxres-dev`
+- `libprocps-dev`
+- `tomlc99` (Not packaged, needs to be installed manually from
+  [source](https://github.com/cktan/tomlc99#building-and-installing))
 - `pandoc` (optional, if you want to build and install the manpage)
+
 
 To build and install run:
 
