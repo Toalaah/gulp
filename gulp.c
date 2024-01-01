@@ -174,9 +174,10 @@ is_descendant_process(pid_t parent, pid_t child) {
 void
 update_window(struct window *w) {
   XTextProperty text_prop;
-  if (XGetTextProperty(display, w->id, &text_prop, XInternAtom(display, "WM_CLASS", false))) {
-    w->name = text_prop.value;
+  if (!XGetTextProperty(display, w->id, &text_prop, XInternAtom(display, "WM_CLASS", false))) {
+    return;
   }
+  w->name = text_prop.value;
   w->is_terminal = is_terminal(w);
   w->no_swallow = is_exception(w);
   w->pid = get_pid(w);
@@ -236,17 +237,13 @@ init_window(struct window *w, Window from) {
   w->ppid = 0;
 
   XTextProperty text_prop;
-  if (XGetTextProperty(display, from, &text_prop, XInternAtom(display, "WM_CLASS", false))) {
-    w->name = text_prop.value;
+  if (!XGetTextProperty(display, from, &text_prop, XInternAtom(display, "WM_CLASS", false))) {
+    return;
   }
 
+  w->name = text_prop.value;
   w->is_terminal = is_terminal(w);
   w->no_swallow = is_exception(w);
-
-  // if (!w->is_terminal) {
-  //   return;
-  // }
-
   w->pid = get_pid(w);
   w->ppid = get_parent(w->pid);
 }
